@@ -26,5 +26,8 @@ void Radfet_Init(void);
  */
 void Control_R1(void);
 
+void Control_R2(void);
+
+void Control_EN(void);
 
 #endif /* INC_RADFET_RADFET_H_ */
