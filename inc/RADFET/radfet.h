@@ -25,6 +25,6 @@ void Radfet_Init(void);
  Private functions.
  */
 void Control_R1(void);
-
+void Control_R2(void);
 
 #endif /* INC_RADFET_RADFET_H_ */
