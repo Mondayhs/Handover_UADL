@@ -1,7 +1,7 @@
 /*
  * radfet.c
  *
- *  Created on: 2023¦~12¤ë22¤é
+ *  Created on: 2023ï¿½~12ï¿½ï¿½22ï¿½ï¿½
  *      Author: OLDBOY
  */
 
@@ -11,9 +11,9 @@
 	RADFET Initial function
  */
 void Radfet_Init(void){  //Initialize & Configure MSS GPIOs for RADFET & ADC
-	MSS_GPIO_config( MSS_GPIO_14 , MSS_GPIO_OUTPUT_MODE );	// RADFET_CTRL_
-	MSS_GPIO_config( MSS_GPIO_15 , MSS_GPIO_OUTPUT_MODE );
-	MSS_GPIO_config( MSS_GPIO_16 , MSS_GPIO_OUTPUT_MODE );
+	MSS_GPIO_config( MSS_GPIO_14 , MSS_GPIO_OUTPUT_MODE );	// RADFET_CTRL_EN
+	MSS_GPIO_config( MSS_GPIO_15 , MSS_GPIO_OUTPUT_MODE );  //R2
+	MSS_GPIO_config( MSS_GPIO_16 , MSS_GPIO_OUTPUT_MODE );  //R1
 
 }
 
@@ -32,12 +32,12 @@ void Control_R2(void){
 	MSS_GPIO_set_output(MSS_GPIO_14, 1);
 	MSS_GPIO_set_output(MSS_GPIO_15, 1);
 	MSS_GPIO_set_output(MSS_GPIO_16, 0);
+}
 
-
-void Control_EN(void){
-	    /* R2 */
-	MSS_GPIO_set_output(MSS_GPIO_14, 1);
-	MSS_GPIO_set_output(MSS_GPIO_15, 1);
-	MSS_GPIO_set_output(MSS_GPIO_16, 1);
+void Control_sleep (void){
+	/* sleep */
+	MSS_GPIO_set_output(MSS_GPIO_14, 0);
+	MSS_GPIO_set_output(MSS_GPIO_15, 0);
+	MSS_GPIO_set_output(MSS_GPIO_16, 0);
  }
 

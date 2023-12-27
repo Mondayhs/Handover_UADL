@@ -1,7 +1,7 @@
 /*
  * radfet.h
  *
- *  Created on: 2023¦~12¤ë22¤é
+ *  Created on: 2023ï¿½~12ï¿½ï¿½22ï¿½ï¿½
  *      Author: OLDBOY
  */
 
@@ -25,6 +25,7 @@ void Radfet_Init(void);
  Private functions.
  */
 void Control_R1(void);
-
+void Control_R2(void);
+void Control_sleep(void);
 
 #endif /* INC_RADFET_RADFET_H_ */
