@@ -6,7 +6,7 @@
  */
 
 #ifndef INC_RADFET_RADFET_H_
-	#define INC_RADFET_RADFET_H_
+#define INC_RADFET_RADFET_H_
 #include "..\..\firmware\CMSIS\m2sxxx.h"
 #include "..\..\firmware\drivers\mss_gpio\mss_gpio.h"
 #include "../../firmware/drivers_config/sys_config/sys_config.h"
