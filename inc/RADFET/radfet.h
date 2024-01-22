@@ -14,6 +14,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#define     BIT30           0x40000000
 
 
 
@@ -27,5 +28,7 @@ void Radfet_Init(void);
 void Control_R1(void);
 void Control_R2(void);
 void Control_sleep(void);
+void Control_SCLK(void);
+uint32_t Insert_1bit(uint8_t*);
 
 #endif /* INC_RADFET_RADFET_H_ */

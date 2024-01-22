@@ -12,21 +12,21 @@
 //        --delay_count;
 //    }
 //}
-
-
-int main(void)
-{
-	uint8_t HK_CMD[3] = {0x11, 0x13, 0x10};
-    uint8_t message[12] = "Hello World";
-     MSS_UART_init(&g_mss_uart1,
-                   MSS_UART_921600_BAUD,
-                   MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT);
-
-     for (int i = 0; i < 5; i++)
-     {
-     MSS_UART_polled_tx(&g_mss_uart1, message, sizeof(message));
-     Delays(16u);
-     }
-
-     return(0);
-}
+//
+//
+//int main(void)
+//{
+//	uint8_t HK_CMD[3] = {0x11, 0x13, 0x10};
+//    uint8_t message[12] = "Hello World";
+//     MSS_UART_init(&g_mss_uart1,
+//                   MSS_UART_921600_BAUD,
+//                   MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT);
+//
+//     for (int i = 0; i < 5; i++)
+//     {
+//     MSS_UART_polled_tx(&g_mss_uart1, message, sizeof(message));
+//     Delays(16u);
+//     }
+//
+//     return(0);
+//}
