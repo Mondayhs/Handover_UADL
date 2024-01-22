@@ -1,8 +1,8 @@
 /*
  * radfet.c
  *
- *  Created on: 2023¦~12¤ë22¤é
- *      Author: OLDBOY
+ *  Created on: 2023ï¿½~12ï¿½ï¿½22ï¿½ï¿½
+ *      Author: Roger
  */
 
 #include ".\radfet.h"
@@ -29,16 +29,16 @@ void Control_R1(void){
 
 void Control_R2(void){
     /* R1 */
-	MSS_GPIO_set_output(MSS_GPIO_14, 0);
+	MSS_GPIO_set_output(MSS_GPIO_14, 1);
 	MSS_GPIO_set_output(MSS_GPIO_15, 1);
-	MSS_GPIO_set_output(MSS_GPIO_16, 1);
+	MSS_GPIO_set_output(MSS_GPIO_16, 0);
 
  }
 
-void Control_EN(void){
+void Control_sleep(void){
     /* R1 */
-	MSS_GPIO_set_output(MSS_GPIO_14, 1);
-	MSS_GPIO_set_output(MSS_GPIO_15, 1);
-	MSS_GPIO_set_output(MSS_GPIO_16, 1);
+	MSS_GPIO_set_output(MSS_GPIO_14, 0);
+	MSS_GPIO_set_output(MSS_GPIO_15, 0);
+	MSS_GPIO_set_output(MSS_GPIO_16, 0);
 
  }
