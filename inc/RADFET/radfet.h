@@ -14,10 +14,11 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <inttypes.h>
 
 
 
-/* radfet funciton */
+/* radfet function */
 void Radfet_Init(void);
 
 
@@ -26,6 +27,7 @@ void Radfet_Init(void);
  */
 void Control_R1(void);
 void Reset(void);
-void Read(void);
+void ReadNOutput(void);
+uint32_t Insert(uint8_t*);
 
 #endif /* INC_RADFET_RADFET_H_ */

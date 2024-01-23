@@ -5,18 +5,22 @@
 #include "inc/RADFET/radfet.h"
 
 int main(){
-	Radfet_Init();	// Radfet & ADC GPIO Initialize
+	Radfet_Init();
+	// Radfet & ADC GPIO Initialize
 
+	/* --------------------------
+	//T3
 	while(1){
 		Control_R1();
-		sleep(100);
-		Read();
-		sleep(100);
+		ReadNOutput();
 		Reset();
-		sleep(100);
-		Read();
-		sleep(100);
+		ReadNOutput();
 	}
+	*/
 
+	while (1) {
 
+	}
 }
+
+

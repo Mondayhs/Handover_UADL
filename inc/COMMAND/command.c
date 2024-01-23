@@ -12,15 +12,15 @@ void Delays(uint32_t num){
 		    {
 		        --delay_count;
 		    }
-		}
-
-int main() {
-
-	uint8_t HK_CMD[3] = {0x11, 0xE3, 0xE0};
-	MSS_UART_init(&g_mss_uart1, MSS_UART_921600_BAUD, MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT);
-	while (1) {
-		MSS_UART_polled_tx(&g_mss_uart1, HK_CMD, sizeof(HK_CMD));
-		Delays(16u);
-	}
-	return 0;
 }
+
+//int main() {
+//
+//	uint8_t HK_CMD[3] = {0x11, 0xE3, 0xE0};
+//	MSS_UART_init(&g_mss_uart1, MSS_UART_921600_BAUD, MSS_UART_DATA_8_BITS | MSS_UART_NO_PARITY | MSS_UART_ONE_STOP_BIT);
+//	while (1) {
+//		MSS_UART_polled_tx(&g_mss_uart1, HK_CMD, sizeof(HK_CMD));
+//		Delays(16u);
+//	}
+//	return 0;
+//}

@@ -1,7 +1,7 @@
 /*
  * radfet.c
  *
- *  Created on: 2023¦~12¤ë22¤é
+ *  Created on: 2023ï¿½~12ï¿½ï¿½22ï¿½ï¿½
  *      Author: OLDBOY
  */
 #define BIT30 0x40000000
@@ -13,8 +13,10 @@
 void Radfet_Init(void){  // Initialize & Configure MSS GPIOs for RADFET & ADC
 // FSSW T1
 	MSS_GPIO_config( MSS_GPIO_14 , MSS_GPIO_OUTPUT_MODE );	// RADFET_CTRL_R1
-	MSS_GPIO_config( MSS_GPIO_16 , MSS_GPIO_OUTPUT_MODE );	// RADFET_CTRL_R2
-	MSS_GPIO_config( MSS_GPIO_15, MSS_GPIO_OUTPUT_MODE ); // RADFET_CTRL_EN
+	MSS_GPIO_config( MSS_GPIO_16 , MSS_GPIO_OUTPUT_MODE );	// RADFET_CTRL_EN
+	MSS_GPIO_config( MSS_GPIO_15, MSS_GPIO_OUTPUT_MODE ); // RADFET_CTRL_R2
+	MSS_GPIO_config( MSS_GPIO_1, MSS_GPIO_OUTPUT_MODE );
+	MSS_GPIO_config( MSS_GPIO_30, MSS_GPIO_INPUT_MODE );
 }
 
 /*==============================================================================
@@ -34,14 +36,27 @@ void Reset(void) {
 	MSS_GPIO_set_output(MSS_GPIO_15, 0);
  }
 
-void Read(void) {
+void ReadNOutput(void) {
 	// FSW T3
+		uint8_t _data_[24];
+		uint32_t ans = 0;
 		for (uint8_t i = 0; i < 24; i++) {
-			uint8_t* _data_ = (uint8_t*)calloc(24, sizeof(uint8_t));
 			MSS_GPIO_set_output(MSS_GPIO_1, 1);
 			uint32_t GPIO_inputs = MSS_GPIO_get_inputs();
-			if ((GPIO_inputs & BIT30) == BIT30) *(_data_ + i) = 1;
-			else *(_data_ + i) = 0;
+			if ((GPIO_inputs & BIT30) == BIT30) (_data_[i]) = 1;
+			else (_data_[i]) = 0;
 			MSS_GPIO_set_output(MSS_GPIO_1, 0);
 		}
+		ans = Insert(_data_);
+		ans = ans * 2.5 / (16777216  - 1);
+}
+
+uint32_t Insert(uint8_t* _address_) {
+	uint32_t value = 0;
+	for (int j = 0; j < 24; j++) {
+		value = value << 1;
+		if (*(_address_ + j) ) value+= 1;
+		else ;
+	}
+	return value;
 }
